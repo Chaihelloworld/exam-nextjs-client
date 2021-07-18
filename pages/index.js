@@ -38,7 +38,7 @@ const Home = ({ data, itemsPerPage, startFrom }) => {
 
     // async function fetchData() {
     //     setLoading(true);
-    //     const res = await axios.get(`http://localhost:5000/user`)
+    //     const res = await axios.get(`${process.env.NEXT_PUBLIC_API}user`)
     //         .then(res => {
     //             setUsers(res.data)
     //         })
@@ -64,11 +64,10 @@ const Home = ({ data, itemsPerPage, startFrom }) => {
         setMoney(add_comma)
     }
 
-
     async function fetchLeaght(toggleState) {
         setLoading(true);
         console.log('toggleState', toggleState)
-        const res = await axios.get(`http://localhost:5000/user?${toggleState}`)
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API}user?${toggleState}`)
             .then( async res => {
                 // setUsers(res.data)
                 setUsers(res.data)
@@ -76,37 +75,37 @@ const Home = ({ data, itemsPerPage, startFrom }) => {
                 setCal(res)
             })
             .catch(err => setError(err));
-        const res0 = await axios.get(`http://localhost:5000/user?`)
+        const res0 = await axios.get(`${process.env.NEXT_PUBLIC_API}user?`)
             .then(res0 => {
                 // setUsers(res.data)
                 setLeaghtall(res0.data)
             })
             .catch(err => setError(err));
-        const res01 = await axios.get(`http://localhost:5000/user?Status=01`)
+        const res01 = await axios.get(`${process.env.NEXT_PUBLIC_API}user?Status=01`)
             .then(res01 => {
                 // setUsers(res.data)
                 setLeaght(res01.data)
             })
             .catch(err => setError(err));
-        const res02 = await axios.get(`http://localhost:5000/user?Status=02`)
+        const res02 = await axios.get(`${process.env.NEXT_PUBLIC_API}user?Status=02`)
             .then(res02 => {
                 // setUsers(res.data)
                 setLeaght02(res02.data)
             })
             .catch(err => setError(err));
-        const res03 = await axios.get(`http://localhost:5000/user?Status=03`)
+        const res03 = await axios.get(`${process.env.NEXT_PUBLIC_API}user?Status=03`)
             .then(res03 => {
                 // setUsers(res.data)
                 setLeaght03(res03.data)
             })
             .catch(err => setError(err));
-        const res04 = await axios.get(`http://localhost:5000/user?Status=04`)
+        const res04 = await axios.get(`${process.env.NEXT_PUBLIC_API}user?Status=04`)
             .then(res04 => {
                 // setUsers(res.data)
                 setLeaght04(res04.data)
             })
             .catch(err => setError(err));
-        const res05 = await axios.get(`http://localhost:5000/user?Status=05`)
+        const res05 = await axios.get(`${process.env.NEXT_PUBLIC_API}user?Status=05`)
             .then(res05 => {
                 // setUsers(res.data)
                 setLeaght05(res05.data)
