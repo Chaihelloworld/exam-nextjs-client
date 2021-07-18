@@ -142,7 +142,7 @@ const Home = ({ data, itemsPerPage, startFrom }) => {
         setCurrentPage(1)
     };
     function calculate() {
-        let cal_money = 0.00
+        let cal_money = 0
         if(user.length > 0) {
             
             user.forEach(e => {
