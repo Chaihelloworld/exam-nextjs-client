@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from '../styles/Home.module.scss'
-import {fileTextO} from 'react-icons-kit/fa/fileTextO'
+import { fileTextO } from 'react-icons-kit/fa/fileTextO'
 import { Icon } from 'react-icons-kit'
 
 const User = ({ user, loading }) => {
@@ -12,10 +12,10 @@ const User = ({ user, loading }) => {
 
     const formatToCurrency = amount => {
         return "" + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
-      };
+    };
 
     return <tbody className={styles.styletd}>
-        {user.length > 0 ? user.map(prod => {
+        {user.map(prod => {
 
             return (
                 <tr key={prod.id} xs={20} className={styles.fontzise} >
@@ -26,44 +26,44 @@ const User = ({ user, loading }) => {
                     <td>{prod.Costomer}</td>
                     <td>{formatToCurrency(prod.Payment)}</td>
                     {/* <td>{prod.Slip}</td> */}
-                    <td><button className={styles.btnfile}><Icon size={20} icon={fileTextO} className={styles.colorfile}/></button></td>
+                    <td><button className={styles.btnfile}><Icon size={20} icon={fileTextO} className={styles.colorfile} /></button></td>
                     <td>
-                    {prod.Status == "01" ? ((
-                        <div className={styles.stylestatus}>
-                            <div className={styles.statusA}>รอชำระเงิน</div>
-                            <div >-</div>
-                        </div>
-                    )) : prod.Status == "02" ? ((
-                        <div className={styles.stylestatus}>
-                            <div className={styles.statusB}>รอตรวจสอบ</div>
-                            <div >-</div>
-                        </div>
-                    )) : prod.Status == "03" ? ((
-                        <div className={styles.stylestatus}>
-                            <div className={styles.statusC}>จ่ายแล้ว</div>
-                            <div >-</div>
-                        </div>
-                    )) :
-                        prod.Status == "04" ? ((
+                        {prod.Status == "01" ? ((
                             <div className={styles.stylestatus}>
-                                <div className={styles.statusD}>ไม่สำเร็จ</div>
+                                <div className={styles.statusA}>รอชำระเงิน</div>
                                 <div >-</div>
                             </div>
-                        )) : prod.Status == "05" ? ((
+                        )) : prod.Status == "02" ? ((
                             <div className={styles.stylestatus}>
-                                <div className={styles.statusE}>ยกเลิก</div>
+                                <div className={styles.statusB}>รอตรวจสอบ</div>
                                 <div >-</div>
                             </div>
-                        )) : (<div>error</div>)
-                    }
+                        )) : prod.Status == "03" ? ((
+                            <div className={styles.stylestatus}>
+                                <div className={styles.statusC}>จ่ายแล้ว</div>
+                                <div >-</div>
+                            </div>
+                        )) :
+                            prod.Status == "04" ? ((
+                                <div className={styles.stylestatus}>
+                                    <div className={styles.statusD}>ไม่สำเร็จ</div>
+                                    <div >-</div>
+                                </div>
+                            )) : prod.Status == "05" ? ((
+                                <div className={styles.stylestatus}>
+                                    <div className={styles.statusE}>ยกเลิก</div>
+                                    <div >-</div>
+                                </div>
+                            )) : (<div>error</div>)
+                        }
                     </td>
-                   {/* <td>{TotalCurrency(prod.Payment)}</td> */}
+                    {/* <td>{TotalCurrency(prod.Payment)}</td> */}
                     {/* <td  className={styles.status}>{prod.Status}</td> */}
                 </tr>
             )
 
         }
-        ) : ""
+        )
         }
 
     </tbody>
