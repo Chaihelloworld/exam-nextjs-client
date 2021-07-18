@@ -117,7 +117,6 @@ const Home = ({ data, itemsPerPage, startFrom }) => {
 
     useEffect(() => {
         calculate()
-
     }, [user])
 
     // useEffect(() => {
@@ -166,7 +165,7 @@ const Home = ({ data, itemsPerPage, startFrom }) => {
             calculate()
             setRunFirstOnlyt(false);
         }
-    }, [])
+    })
 
 
     return (
