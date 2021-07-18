@@ -6,7 +6,7 @@ import { ic_assignment } from 'react-icons-kit/md/ic_assignment'
 import { ic_developer_board } from 'react-icons-kit/md/ic_developer_board'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import User from './user'
+import User from '../Component/user'
 import Pagination from './helpful/pagination'
 import Image from 'next/image'
 
