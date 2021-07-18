@@ -15,7 +15,7 @@ const User = ({ user, loading }) => {
       };
 
     return <tbody className={styles.styletd}>
-        {user.map(prod => {
+        {user.length > 0 ? user.map(prod => {
 
             return (
                 <tr key={prod.id} xs={20} className={styles.fontzise} >
@@ -63,7 +63,7 @@ const User = ({ user, loading }) => {
             )
 
         }
-        )
+        ) : ""
         }
 
     </tbody>
