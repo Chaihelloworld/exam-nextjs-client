@@ -501,11 +501,13 @@ color: #8ac1ff;
 .user_contaimer {
   margin: auto;
   height: fit-content;
-  img {
-    width: 50px;
-    height: 50px;
-    object-position: center;
-    object-fit: cover;
-    border-radius: 10px;
-  }
+  writing-mode: vertical-lr;
+}
+
+.user_img {
+  width: 50px;
+  height: 50px;
+  object-position: center;
+  object-fit: cover;
+  border-radius: 10px;
 }

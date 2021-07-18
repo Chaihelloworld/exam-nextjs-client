@@ -8,6 +8,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import User from './user'
 import Pagination from './helpful/pagination'
+import Image from 'next/image'
 
 const Home = ({ data, itemsPerPage, startFrom }) => {
     const [hasError, setErrors] = useState(false);
@@ -209,7 +210,8 @@ const Home = ({ data, itemsPerPage, startFrom }) => {
                         </div>
                         <div className={styles.card}>
                             <div className={styles.user_contaimer}>
-                                <img src='/image.jpg' />
+                            <Image className={styles.user_img} src='/image.jpg' alt="Picture of the author" width={50} height={50}/>
+                                {/* <img src='/image.jpg' /> */}
                             </div>
                             <div className={styles.displaycard}>
                                 <div className={styles.text}>
