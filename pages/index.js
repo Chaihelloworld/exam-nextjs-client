@@ -33,7 +33,7 @@ const Home = ({ data, itemsPerPage, startFrom }) => {
 
     const [search, setSearch] = useState();
     const [filteredCountries, setFilteredCountries] = useState([]);
-    const [CountData, setCountData] = useState(0)
+    const [Money, setMoney] = useState('0.00')
 
     // async function fetchData() {
     //     setLoading(true);
@@ -44,6 +44,26 @@ const Home = ({ data, itemsPerPage, startFrom }) => {
     //         .catch(err => setError(err));
     //     setLoading(false)
     // }
+    function separator(numb) {
+        var str = numb.toString().split(".");
+        str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return str.join(".");
+    }
+    
+
+    function calculate() {
+        let cal_money = 0
+        if(user.length > 0) {
+            
+            user.forEach(e => {
+                cal_money += e.Payment
+            });
+        }
+        let add_comma = separator(cal_money)
+        setMoney(add_comma)
+    }
+
+
     async function fetchLeaght(toggleState) {
         setLoading(true);
         console.log('toggleState', toggleState)
@@ -96,8 +116,6 @@ const Home = ({ data, itemsPerPage, startFrom }) => {
     }
 
     useEffect(() => {
-        console.log('start')
-        console.log(user)
         calculate()
 
     }, [user])
@@ -135,29 +153,13 @@ const Home = ({ data, itemsPerPage, startFrom }) => {
         return data
     }
 
-    const [Money, setMoney] = useState('0.00')
     const toggleTab = (index) => {
         setToggleState(index);
         fetchLeaght(index);
         setCurrentPage(1)
     };
-    function calculate() {
-        let cal_money = 0
-        if(user.length > 0) {
-            
-            user.forEach(e => {
-                cal_money += e.Payment
-            });
-        }
-        let add_comma = separator(cal_money)
-        setMoney(add_comma)
-    }
-    function separator(numb) {
-        var str = numb.toString().split(".");
-        str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        return str.join(".");
-    }
-    
+
+ 
     useEffect(() => {
         if (runFirstOnly) {
             fetchLeaght('');
