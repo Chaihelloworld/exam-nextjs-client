@@ -301,7 +301,11 @@ const Home = ({ data, itemsPerPage, startFrom }) => {
                                             <th>Status</th>
                                         </tr>
                                     </thead>
-                                    <User user={searchs(currentUser)} loading={loading} />
+                                    <tbody className={styles.styletd}>
+                                    {searchs(currentUser).length > 0 ? searchs(currentUser).map(
+                                       (e, index) =>  <User key={e.id} prod={e} loading={loading} index={index} currentPage={currentPage} />
+                                    ) : ''}
+                                   </tbody>
                                 </table>
                                 <div>
                                     <Pagination postsPerPage={postsPerPage}
