@@ -4,16 +4,12 @@ import { fileTextO } from 'react-icons-kit/fa/fileTextO'
 import { Icon } from 'react-icons-kit'
 
 const User = ({ prod, loading, currentPage, index }) => {
-    const num = [];
-    // if(loading) {
-    //     return <h2>Loading...</h2>;
-    // }
     const formatToCurrency = amount => {
         return "" + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
     };
 
-    if (prod.Code) {
-        return <tr key={prod.id} xs={20} className={styles.fontzise} >
+    if (prod.Code !== undefined) {
+        return (<tr key={prod.id} xs={20} className={styles.fontzise} >
             <td>{currentPage == 1 ? (index + 1) : (index + 1) + ((currentPage - 1) * 10)}</td>
             <td>{prod.Code}</td>
             <td>{prod.Projectname}</td>
@@ -54,7 +50,7 @@ const User = ({ prod, loading, currentPage, index }) => {
             </td>
             {/* <td>{TotalCurrency(prod.Payment)}</td> */}
             {/* <td  className={styles.status}>{prod.Status}</td> */}
-        </tr>
+        </tr>)
     } else
         return
 }
